@@ -20,7 +20,7 @@ facilitated defining and manipulating such matrices.
 | insert2spmat      | inserts an entry in a COO matrix at a given position |
 | insertblock2spmat | inserts a block COO matrix into another COO matrix   |
 | SPtranspose       | transpose a COO matrix                               |
-| alpha * Asp       | `alph` is a real*8 and Asp is a COO matrix           |
+| alpha * Asp       | `alpha` is a real*8 and Asp is a COO matrix           |
 | Asp * vec         | multiplies a COO sparse matrix to a vector           |
 | Asp + Bsp         | sum of two sparse matrices. It might be expensive    |
 | Bsp = Asp         | Assign Asp to Bsp                                    |
