@@ -1,0 +1,9 @@
+# This file is generated automatically. DO NOT EDIT!
+
+build/spmat.o :  \
+	build/mgmres.o
+
+build/mgmres.o : 
+
+build/test.o :  \
+	build/spmat.o
