@@ -68,7 +68,7 @@ program test
 end program test
 ```
 
-The output is saved in `bin/soltion` and can be ploted using
+The output is saved in `bin/solution` and can be ploted using
 `plot/plot.py`:
 ![Solution of the finite difference method](plot/solution.png)
 
