@@ -467,13 +467,13 @@ contains
 
   !> read an entry of the sparse matrix.
   !! we just do a linear search in the arrays.
-  subroutine readspmat(Asp,i,j,val,flagOut)
+  subroutine readspmat(Asp,i,j,val,flagOut,nOut)
     type(spmat),                     intent(in)    :: Asp
     integer (kind=spkind),           intent(in)    :: i
     integer (kind=spkind),           intent(in)    :: j
-    real (kind=spkind_real),                intent(inout) :: val
+    real (kind=spkind_real),         intent(inout) :: val
     integer,               optional, intent(inout) :: flagOut
-
+    integer (kind=spkind), optional, intent(inout) :: nOut
     integer (kind=spkind) :: n
     integer               :: flag
 
@@ -483,11 +483,15 @@ contains
 
     val  = 0.0d0
     flag = 0
+    
     do n=1, Asp%N_nonzero
        !
        if ( Asp%i(n).eq.i ) then
           if ( Asp%j(n).eq.j ) then
              !
+             if (present(nOut)) then
+                nOut = n
+             endif
              val = val + Asp%k(n)
              flag = flag + 1
              !
@@ -503,8 +507,33 @@ contains
     if (present(flagOut)) then
        flagOut = flag
     endif
+
+   
   end subroutine readspmat
 
+  !> setvalspmat set the value of a particular entry into a given value
+  subroutine setvalspmat(Asp, i, j, val)
+    type(spmat),                     intent(inout) :: Asp
+    integer (kind=spkind),           intent(in)    :: i
+    integer (kind=spkind),           intent(in)    :: j
+    real (kind=spkind_real),         intent(in)    :: val
+
+    integer :: flag, n
+    real (kind=spkind_real) :: valDummy
+    
+    call readspmat(Asp, i, j, valDummy, flag, n)
+
+    if (flag > 1) then
+       write(6,*) "error in setvalspmat: multiple entries found"
+       stop
+    elseif (flag.eq.1) then
+       Asp%k(n) = val
+    else
+       call insert2spmat(Asp, i, j, val)
+    endif
+    
+  end subroutine setvalspmat
+  
   !> copysp2sp copies a sparse matrix into another one.
   subroutine copysp2sp(Asp,Bsp)
     type(spmat),           intent(in)    :: Asp

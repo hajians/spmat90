@@ -17,6 +17,7 @@ facilitated defining and manipulating such matrices.
 | writespmat        | writes a sparse matrix of COO format in a file       |
 | showspmat         | shows a sparse matrix of COO format in terminal      |
 | readspmat         | read an entry of a COO matrix and return the value   |
+| setvalspmat       | set an entry in a COO matrix at a given position |
 | insert2spmat      | inserts an entry in a COO matrix at a given position |
 | insertblock2spmat | inserts a block COO matrix into another COO matrix   |
 | SPtranspose       | transpose a COO matrix                               |
