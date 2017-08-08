@@ -75,7 +75,7 @@ The output is saved in `bin/soltion` and can be ploted using
 # External libraries
 
 * Quick sort routine by *Brainerd, W.S., Goldberg, C.H. & Adams, J.C.*
-  (1990) **Programmer's Guide to ! Fortran 90**, McGraw-Hill, pages 149-150.*
+  (1990) **Programmer's Guide to Fortran 90**, McGraw-Hill, pages 149-150.
 * GMRES solver by *Lili Ju* (C version) and *John Burkardt* (Fortran
   version). See also **Templates for the Solution of Linear Systems:
   Building Blocks for Iterative Methods** (1994) SIAM.
