@@ -5,13 +5,12 @@ Surprisingly I have not found a good sparse matrix library for
 object-oriented library to implement sparse matrices. This library
 facilitated defining and manipulating such matrices. 
 
-## Available sparse matrix representations:
-1. COO (coordinate):                  type(spmat)
-2. CSR (compressed storage row):      type(sp_csr)
+## Available sparse matrix representations
+1. COO (coordinate):                  `type(spmat)`
+2. CSR (compressed storage row):      `type(sp_csr)`
 
-## Main subroutines to manipulate sparse matrix:
-
-| subroutine        | |
+## Main subroutines to manipulate sparse matrix
+| subroutine        | description |
 |---|---|
 | buildspmat        | builds a sparse matrix in COO format                 |
 | clearspmat        | destroy a sparse matrix in COO format                |
@@ -21,7 +20,7 @@ facilitated defining and manipulating such matrices.
 | insert2spmat      | inserts an entry in a COO matrix at a given position |
 | insertblock2spmat | inserts a block COO matrix into another COO matrix   |
 | SPtranspose       | transpose a COO matrix                               |
-| alpha * Asp       | 'alph' is a real*8 and Asp is a COO matrix           |
+| alpha * Asp       | `alph` is a real*8 and Asp is a COO matrix           |
 | Asp * vec         | multiplies a COO sparse matrix to a vector           |
 | Asp + Bsp         | sum of two sparse matrices. It might be expensive    |
 | Bsp = Asp         | Assign Asp to Bsp                                    |
@@ -69,3 +68,6 @@ program test
 end program test
 ```
 
+The output is saved in `bin/soltion` and can be ploted using
+`plot/plot.py`:
+![Solution of the finite difference method](plot/solution.png)
