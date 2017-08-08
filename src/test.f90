@@ -1,9 +1,10 @@
+!> @file test.f90
 program test
 
   use sparsemat
 
   type(spmat)             :: A, K, Id       ! define two sparse matrix
-  integer, parameter      :: len = 20       ! define the length of the matrices
+  integer, parameter      :: len = 40       ! define the length of the matrices
   real (kind=spkind_real) :: f(len)         ! define the force vector
   real (kind=spkind_real) :: u(len)         ! define the solution vector
   real (kind=spkind_real) :: h              ! mesh size
