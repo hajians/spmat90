@@ -32,9 +32,9 @@ test: $(OBJECTS)
 $(BUILDDIR)/%.o: $(SRCDIR)/%.f90
 	$(FC) $(FCFLAGS) -c $< -o $@ -J$(MODDIR) $(LIB)
 
-$(DEP): $(SRCDIR)/fort_depend.py
-	@echo "Making dependencies..."
-	python $(SRCDIR)/fort_depend.py -b $(BUILDDIR) -w -o $(DEP) -f $(SRCDIR)/*.$(SRCEXT)
+# $(DEP): $(SRCDIR)/fort_depend.py
+# 	@echo "Making dependencies..."
+# 	python $(SRCDIR)/fort_depend.py -b $(BUILDDIR) -w -o $(DEP) -f $(SRCDIR)/*.$(SRCEXT)
 
 clean:
 	@echo "Cleaning..."
